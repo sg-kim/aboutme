@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 모바일 화면 대응 */
+@media screen and (min-width: 601px) {
+
+    #top_level_div {
+        width: 80vw;    /* 컨텐츠를 담는 캔버스는 화면 너비의 80%(=80vw)를 차지한다 */
+        margin: 8vw auto 0 auto;    /* 위쪽, 오른쪽, 아래쪽, 왼쪽 여백 */
+        flex-grow: 1;
+    }
+
+        #introduction_div{
+        }
+
+            #profile_pic_div {
+                text-align: center;
+                margin: 0 0 2vw 0;
+            }
+
+                /* 프로필 사진 크기. 현재 설정은 자신에게 할당된 영역(div)의 20%를 넘지 않도록 되어 있다 */
+                #profile_pic_div > img {
+                    max-width: 20%;
+                    border-radius: 5%;    /* 사진 모서리 둥글게 */
+                }
+
+            /* 가로줄 속성. 화면 너비의 75% */
+            hr {
+                width: 75%;
+            }
+
+            /* 자기소개 디스크립션 가운데 정렬(center) */
+            #profile_log_div {
+                text-align: center;
+            }
+
+            /* 프로젝트 제목들 가운데 정렬(center) */
+            #projects_div {
+                text-align: center;
+            }
+
+                /* 프로젝트 1 제목. 마우스 포인터가 손모양(pointer)로 변하고, 굵은 글씨(bold)로 표시 */
+                #project_1_div_toggle {
+                    margin: 0 0 0.5vw 0;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                /* 프로젝트 2 제목. 마우스 포인터가 손모양(pointer)로 변하고, 굵은 글씨(bold)로 표시 */
+                #project_2_div_toggle {
+                    margin: 0 0 0.5vw 0;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                /* 프로젝트 3 제목. 여백(margin) 없음. 마우스 포인터가 손모양(pointer)로 변하고, 굵은 글씨(bold)로 표시. */
+                #project_3_div_toggle {
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                    .project_container_div {
+                        display: flex;
+                        justify-content: center;    /* 가로 가운데 정렬 */
+                        align-items: center;    /* 세로 가운데 정렬 */
+                        height: 0px;    /* 기본: 닫혀 있다 */
+                        overflow: hidden;    /* 만약 컨텐츠가 영역보다 크면 넘어가는 부분은 보이지 않게하기 */
+                        transition: height 0.5s;    /* 여닫는데 각각 걸리는 시간 = 0.5초 */
+                    }
+
+                        .project_image_div {
+                            flex-basis: 16vw;    /* 사진 영역은 화면 너비(=100vw)의 16% */
+                            flex-grow: 0;
+                            padding: 0.5vw 0 0.5vw 0;   /* 위, 오른쪽, 아래, 왼쪽 테두리 두께, 색상: 투명 */
+                        }
+
+                            .project_image_div > img {
+                                max-width: 75%;    /* 사진은 자신의 영역(div)의 75%를 넘지 못한다. */
+                            }
+
+                        .project_description_div {
+                            flex-basis: 48vw;    /* 소개글 영역은 화면 너비(=100vw)의 48% */
+                            flex-grow: 0;
+                            padding: 0.5vw 0 0.5vw 0;
+                        }
+
+    #external_links_div {
+        flex-grow: 0;
+        background-color: silver;    /* 맨 아래 연락처 등 배경색 */
+        text-align: center;
+        padding: 0.5vw 0 0.5vw 0;
+    }
+
+        #external_links_div span {
+            margin: 0.5vw;    /* 각 연락처 사이의 간격. 0.5vw = 화면 너비(100vw)의 0.5% */
+        }
+
+            #external_links_div span a {
+                color: black;
+                /*  font-weight: bold;  */
+                font-size: 125%;    /* 글자 크기 25% 크게(=125%) */
+            }
+
+}
+
+/* 데스크탑 화면 대응 */
+@media screen and (max-width: 600px) {
+
+    #top_level_div {
+        width: 96vw;    /* 컨텐츠를 담는 캔버스는 화면 너비의 96%(=96vw)를 차지한다 */
+        margin: 8vw auto 0 auto;    /* 위쪽, 오른쪽, 아래쪽, 왼쪽 여백 */
+        flex-grow: 1;
+    }
+
+        #introduction_div{
+        }
+
+            #profile_pic_div {
+                text-align: center;
+                margin: 0 0 2vw 0;
+            }
+
+                /* 프로필 사진 크기. 현재 설정은 자신에게 할당된 영역(div)의 40%를 넘지 않도록 되어 있다 */
+                #profile_pic_div > img {
+                    max-width: 40%;
+                    border-radius: 5%;  /* 사진 모서리 둥글게 */
+                }
+
+            /* 가로줄 속성. 화면 너비의 75% */
+            hr {
+                width: 75%;
+            }
+
+            /* 자기소개 디스크립션 가운데 정렬(center) */
+            #profile_log_div {
+                text-align: center;
+            }
+
+            /* 프로젝트 제목들 가운데 정렬(center) */
+            #projects_div {
+                text-align: center;
+            }
+
+                /* 프로젝트 1 제목. 마우스 포인터가 손모양(pointer)로 변하고, 굵은 글씨(bold)로 표시 */
+                #project_1_div_toggle {
+                    margin: 0 0 0.5vw 0;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                /* 프로젝트 2 제목. 마우스 포인터가 손모양(pointer)로 변하고, 굵은 글씨(bold)로 표시 */
+                #project_2_div_toggle {
+                    margin: 0 0 0.5vw 0;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                /* 프로젝트 3 제목. 마우스 포인터가 손모양(pointer)로 변하고, 굵은 글씨(bold)로 표시 */
+                #project_3_div_toggle {
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                    .project_container_div {
+                        display: flex;
+                        justify-content: center;    /* 가로 가운데 정렬 */
+                        align-items: center;    /* 세로 가운데 정렬 */
+                        height: 0px;    /* 기본: 닫혀 있다 */
+                        overflow: hidden;   /* 만약 컨텐츠가 영역보다 크면 넘어가는 부분은 보이지 않게하기 */
+                        transition: height 0.5s;    /* 여닫는데 각각 걸리는 시간 = 0.5초 */
+                    }
+
+                        .project_image_div {
+                            flex-basis: 32vw;   /* 사진 영역은 화면 너비(=100vw)의 32% */
+                            flex-grow: 0;
+                            padding: 0.5vw 0 0.5vw 0;   /* 위, 오른쪽, 아래, 왼쪽 테두리 두께, 색상: 투명 */
+                        }
+
+                            .project_image_div > img {
+                                max-width: 75%; /* 사진은 자신에게 주어진 영역(div)의 75%를 넘지 못한다. */
+                            }
+
+                        .project_description_div {
+                            flex-basis: 64vw;   /* 소개글 영역은 화면 너비(=100vw)의 48% */
+                            flex-grow: 0;
+                            padding: 0.5vw 0 0.5vw 0;
+                            text-align: left;   /* 글자 왼쪽 정렬 */
+                        }
+
+    #external_links_div {
+        flex-grow: 0;
+        background-color: silver;   /* 맨 아래 연락처 등 배경색 */
+        text-align: center;
+        padding: 0.5vw 0 0.5vw 0;
+    }
+
+        #external_links_div span {
+            margin: 0.5vw;  /* 각 연락처 사이의 간격. 0.5vw = 화면 너비(100vw)의 0.5% */
+        }
+
+            #external_links_div span a {
+                color: black;
+                /*  font-weight: bold;  */
+                font-size: 110%;    /* 글자 크기 10% 크게(=110%) */
+            }
+
+}

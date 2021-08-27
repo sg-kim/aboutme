@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./static/css/main.css">
+    <title>About me</title>
+</head>
+<body>
+    <div id="top_level_div">
+        <div id="introduction_div">
+            <div id="profile_pic_div">
+                <!-- 프로필 사진 -->
+                <img id="profile_pic" src="./static/profile_pic.png">
+            </div>
+            <div id="profile_log_div">
+                <p>
+                    <!-- 여기에 자기소개 디스크립션 -->
+                    This page is about a person who made this page.<br>
+                    He has been studying Electrical and Computer Engineering.<br>
+                    He has interest on computer, networking, and connection via web.<br>
+                    He is in intermediate level on C, Python, JavaScript and he knows little about HTML and CSS.<br>
+                    His daily life is reading, studying and making something.<br>
+                </p>
+            </div>
+            <hr>
+            <div id="projects_div">
+                <div id="project_1_div_toggle" data-folding="true">Project 1 - QuickStep board</div>
+                <div id="project_1_div">
+                    <div class="project_container_div">
+                        <div class="project_image_div">
+                            <!-- src 속성에 프로젝트 1 대표 이미지 -->
+                            <img src="./static/QuickStepBoard_A_Graphic_Image_434x434.png">
+                        </div>
+                        <div class="project_description_div">
+                            <p>
+                                <!-- 여기에 프로젝트 1 디스크립션 -->
+                                An improved perfboard for productivity, called QuickStep board.<br>
+                                The perfboard supports easier connection among components.<br>
+                                There's no one who has experienced but using it only once.<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="project_2_div_toggle" data-folding="true">Project 2 - Python Flask web server</div>
+                <div id="project_2_div">
+                    <div class="project_container_div">
+                        <div class="project_image_div">
+                            <!-- src 속성에 프로젝트 2 대표 이미지 -->
+                            <img src="./static/Flask_logo_400x300_72DPI.png">
+                        </div>
+                        <div class="project_description_div">
+                            <p>
+                                <!-- 여기에 프로젝트 2 디스크립션 -->
+                                A study project for basic reusable web service code.<br>
+                                Python and Flask were used for service logic.<br>
+                                MariaDB was used for service database.<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="project_3_div_toggle" data-folding="true">Project 3 - Web server with React</div>
+                <div id="project_3_div">
+                    <div class="project_container_div">
+                        <div class="project_image_div">
+                            <!-- src 속성에 프로젝트 3 대표 이미지 -->
+                            <img src="./static/React_logo_246x246_72DPI.png">
+                        </div>
+                        <div class="project_description_div">
+                            <p>
+                                <!-- 여기에 프로젝트 3 디스크립션 -->
+                                This project is for improving UI of the basic web service code.<br>
+                                Service logic is based on Python, Flask and MariaDB.<br>
+                                React.js is used for frontend view components.<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div id="external_links_div">
+        <span><a href="mailto:itsme@abc.com">Mail</a></span>    <!-- 이메일 주소 -->
+        <span><a href="#" target="_blank">Github</a></span>    <!-- target에 Github 주소 -->
+        <span><a href="#" target="_blank">SNS</a></span>    <!-- target에 SNS 주소 -->
+    </div>
+</body>
+<script>
+    window.onload = () => {
+        const project1Toggle = document.querySelector('#project_1_div_toggle');
+        const project1Content = document.querySelector('#project_1_div > div.project_container_div');
+        const project1ContentImage = document.querySelector('#project_1_div > div.project_container_div > div.project_image_div');
+        const project1ContentDesc = document.querySelector('#project_1_div > div.project_container_div > div.project_description_div');
+
+        const project2Toggle = document.querySelector('#project_2_div_toggle');
+        const project2Content = document.querySelector('#project_2_div > div.project_container_div');
+        const project2ContentImage = document.querySelector('#project_2_div > div.project_container_div > div.project_image_div');
+        const project2ContentDesc = document.querySelector('#project_2_div > div.project_container_div > div.project_description_div');
+
+        const project3Toggle = document.querySelector('#project_3_div_toggle');
+        const project3Content = document.querySelector('#project_3_div > div.project_container_div');
+        const project3ContentImage = document.querySelector('#project_3_div > div.project_container_div > div.project_image_div');
+        const project3ContentDesc = document.querySelector('#project_3_div > div.project_container_div > div.project_description_div');
+
+        project1Toggle.addEventListener('click', (event) => {
+
+            var projectContentImageHeight = project1ContentImage.scrollHeight;
+            var projectContentDescHeight = project1ContentDesc.scrollHeight;
+            var projectContentContainerHeight = Math.max(projectContentImageHeight, projectContentDescHeight);
+
+            if(event.target.dataset.folding == 'true'){
+                event.target.dataset.folding = 'false';
+                project1Content.style.height = projectContentContainerHeight + 'px';
+            }
+            else{
+                event.target.dataset.folding = 'true';
+                project1Content.style.height = '0px';
+            }
+        });
+
+        project2Toggle.addEventListener('click', (event) => {
+
+            var projectContentImageHeight = project2ContentImage.scrollHeight;
+            var projectContentDescHeight = project2ContentDesc.scrollHeight;
+            var projectContentContainerHeight = Math.max(projectContentImageHeight, projectContentDescHeight);
+
+            if(event.target.dataset.folding == 'true'){
+                event.target.dataset.folding = 'false';
+                project2Content.style.height = projectContentContainerHeight + 'px';
+            }
+            else{
+                event.target.dataset.folding = 'true';
+                project2Content.style.height = '0px';
+            }
+        });
+
+        project3Toggle.addEventListener('click', (event) => {
+
+            var projectContentImageHeight = project3ContentImage.scrollHeight;
+            var projectContentDescHeight = project3ContentDesc.scrollHeight;
+            var projectContentContainerHeight = Math.max(projectContentImageHeight, projectContentDescHeight);
+
+            if(event.target.dataset.folding == 'true'){
+                event.target.dataset.folding = 'false';
+                project3Content.style.height = projectContentContainerHeight + 'px';
+            }
+            else{
+                event.target.dataset.folding = 'true';
+                project3Content.style.height = '0px';
+            }
+        });
+    }
+</script>
+</html>
